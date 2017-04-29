@@ -21,6 +21,27 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function (){
 
+    Route::get('add', function () {
+        return \App\User::find(4)->add_friend(1);
+    });
+
+    Route::get('accept', function () {
+        return \App\User::find(2)->accept_friend(1);
+    });
+
+    Route::get('friends', function () {
+        return \App\User::find(1)->friends();
+    });
+
+    Route::get('pending_friends', function () {
+        return \App\User::find(1)->pending_friend_requests;
+    });
+
+
+    Route::get('profile/edit/profile', [
+        'uses' => 'ProfilesController@edit',
+        'as' => 'profile.edit']);
+
     Route::get('profile/edit/profile', [
         'uses' => 'ProfilesController@edit',
         'as' => 'profile.edit']);

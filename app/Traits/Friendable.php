@@ -36,6 +36,21 @@ trait Friendable
         return response()->json('Fail update', 501);
     }
 
+    public function pending_friend_requests()
+    {
+        $users = [];
+
+        $friendships = Friendship::where('status', 0)->where('requester', $this->id)
+            ->get();
+
+        foreach ($friendships as $pending)
+        {
+            array_push($user, \App\User::find($pending->user->requested));
+        }
+
+        return $users;
+    }
+
     public function friends()
     {
         $friends = array();
