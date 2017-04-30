@@ -66,7 +66,7 @@ class RegisterController extends Controller
     {
         if($data['gender'])
         {
-            $avatar = 'public/defaults/avatars/male.png';
+            $avatar = 'public/defaults/avatars/male.jpg';
         }
         else
         {

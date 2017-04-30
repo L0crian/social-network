@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Scripts -->
     <script>
@@ -20,7 +21,21 @@
         ]) !!};
     </script>
 </head>
+<style>
+    .flash-message {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 20%;
+        z-index: 10000;
+    }
+</style>
 <body>
+
+<div class="container flash-message">
+    @include('flash::message')
+</div>
+
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -85,5 +100,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+     </script>
+    <script>
+        $('div.flash-message').delay(3000).fadeOut(350);
+    </script>
 </body>
 </html>

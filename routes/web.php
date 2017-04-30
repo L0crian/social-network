@@ -22,11 +22,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function (){
 
     Route::get('add', function () {
-        return \App\User::find(4)->add_friend(1);
+        return \App\User::find(1)->add_friend(2);
     });
 
     Route::get('accept', function () {
-        return \App\User::find(2)->accept_friend(1);
+        return \App\User::find(1)->accept_friend(3);
     });
 
     Route::get('friends', function () {
@@ -34,8 +34,17 @@ Route::group(['middleware' => 'auth'], function (){
     });
 
     Route::get('pending_friends', function () {
-        return \App\User::find(1)->pending_friend_requests;
+        return \App\User::find(1)->pending_friend_requests();
     });
+
+    Route::get('ids', function () {
+        return \App\User::find(1)->friends_ids();
+    });
+
+    Route::get('is', function() {
+        return \App\User::find(1)->is_friends_with(4);
+    });
+
 
 
     Route::get('profile/edit/profile', [
