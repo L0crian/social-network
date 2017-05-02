@@ -42,7 +42,6 @@ class ProfilesController extends Controller
             'about' => $request->input('about')
         ]);
 
-        Session::flash('succes', 'Profile updated');
 
         return redirect()->back();
     }

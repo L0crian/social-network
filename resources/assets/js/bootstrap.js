@@ -20,7 +20,7 @@ try {
  */
 
 window.axios = require('axios');
-
+window.noty =  require('noty');
 window.axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -32,9 +32,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 // import Echo from 'laravel-echo'
 
-// window.Pusher = require('pusher-js');
+import Echo from 'laravel-echo'
+ window.Pusher = require('pusher-js');
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
+ window.Echo = new Echo({
+     broadcaster: 'pusher',
+     key: 'b5b7e4f0248d0191b6e1',
+     cluster: 'eu'
+ });
+
+ Pusher.log = function(message) {
+     window.console.log(message);
+ }
