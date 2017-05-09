@@ -99,4 +99,21 @@ Route::group(['middleware' => 'auth'], function (){
         'uses' => 'ProfilesController@update',
         'as' => 'profile.update']);
 
+
+    Route::get('/get_unread', function() {
+       return Auth::user()->unreadNotifications;
+    });
+
+    Route::get('/notifications', [
+        'uses' => 'HomeController@notifications',
+        'as' => 'notifications']);
+
+    Route::post('/create/posts', [
+        'uses' => 'PostController@store',
+        'as' => 'post.create']);
+
+
+
+
+
 });

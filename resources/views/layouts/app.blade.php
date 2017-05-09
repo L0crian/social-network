@@ -24,15 +24,7 @@
     </script>
     <script src="{{asset('js/noty.js')}}" type="text/javascript"></script>
 </head>
-<style>
-    .flash-message {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 20%;
-        z-index: 10000;
-    }
-</style>
+
 <body>
 
 
@@ -60,7 +52,8 @@
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
                         &nbsp;<li><a href="{{route('profile', ['slug' => Auth::user()->slug])}}">My profile</a></li>
-                    @endif;
+                        <unread></unread>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -96,7 +89,12 @@
     </nav>
 
     @yield('content')
+    @if(Auth::check())
     <notification :id="{{Auth::id()}}"></notification>
+        <audio id="noty_audio">
+            <source src="{{asset('audio/notify.mp3')}}">
+        </audio>
+    @endif;
 </div>
 
 <!-- Scripts -->

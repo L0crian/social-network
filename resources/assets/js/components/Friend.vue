@@ -34,13 +34,14 @@
                 this.loading = true
                 axios.get('/add_friend/' + this.profile_user_id )
                     .then( (r) => {
+
                         if(r.data == 1)
                             this.status = 'waiting';
-                        noty({
+                       new noty({
                             type: 'success',
                             layout: 'bottomLeft',
                             text: 'Friend request sent .'
-                        })
+                        }).show();
                         this.loading = false;
                     })
             },
@@ -50,11 +51,11 @@
                     .then( (r) => {
                         if(r.data == 1)
                             this.status = 'friends';
-                        noty({
+                        new noty({
                             type: 'success',
                             layout: 'bottomLeft',
                             text: 'You are now friend. Go ahead and hangout .'
-                        })
+                        }).show();
                         this.loading = false;
                     })
             }

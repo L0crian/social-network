@@ -13,8 +13,13 @@
                 Echo.private('App.User.' + this.id)
                     .notification((notification) =>
                     {
-                        alert('new notification');
-                        console.log(notification);
+                        new noty({
+                            type: 'success',
+                            layout: 'bottomLeft',
+                            text: notification.name + notification.message
+                        }).show();
+                        document.getElementById("noty_audio").play();
+                        this.$store.commit('add_not', notification);
                     })
             }
         }
