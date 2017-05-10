@@ -13,9 +13,7 @@
                 get_unread() {
                     axios.get('/get_unread')
                         .then( (nots) => {
-                            console.log("hey there");
-                            console.log(nots.data);
-                            nots.data.forEach( (not) => {
+                             nots.data.forEach( (not) => {
                                 this.$store.commit('add_not', not);
                             });
                         });
