@@ -21,6 +21,7 @@ Vue.component('unread', require('./components/UnreadNots.vue'));
 Vue.component('post', require('./components/Post.vue'));
 Vue.component('feed', require('./components/Feed.vue'));
 Vue.component('like', require('./components/Like.vue'));
+Vue.component('search', require('./components/Search.vue'));
 
 import { store } from './store'
 

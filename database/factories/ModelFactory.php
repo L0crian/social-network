@@ -35,3 +35,10 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
        'content' => $faker->text()
     ];
 });
+
+$factory->define(App\Profile::class, function (Faker\Generator $faker) {
+    return [
+        'location' => $faker->city,
+        'about' => $faker->paragraph(4)
+    ];
+});

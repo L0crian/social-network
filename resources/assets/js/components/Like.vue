@@ -5,8 +5,10 @@
         <img :src="like.user.avatar" width="40px" height="40px" class="avatar" alt="">
     </p>
     <hr>
-        <button class="btn btn-primary" v-if="!auth_user_likes_post" @click="like()">Like this post</button>
-        <button class="btn btn-danger" v-else @click="unlike()">Unlike this post</button>
+        <div v-if="this.$store.state.auth_user.id != post.user_id">
+            <button class="btn btn-primary" v-if="!auth_user_likes_post" @click="like()">Like this post</button>
+            <button class="btn btn-danger" v-else @click="unlike()">Unlike this post</button>
+        </div>
     </div>
 </template>
 
